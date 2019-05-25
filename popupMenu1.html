@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>逐渐弹出式菜单2</title>
+
+    <!--渐进渐出的弹出式菜单
+    (1) li的高度和宽度在 hover 之前就设置了
+    -->
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .contentWrapper{    /*使得 content 能始终居中*/
+            width: 100%;
+            height: 50px;
+            background: lightyellow;
+        }
+        .content{
+            margin:0 auto;
+            width: 200px;
+            height: 50px;
+            background: lightblue;
+        }
+
+        .content .popupMenuTriggerDiv{  /*设置 triggerDiv 的大小*/
+            width: 100%;
+            height: 50px;
+        }
+
+        .content .popupMenuTriggerDiv .TriggerDivContent{   /* triggerDiv区域提示部分的设置 */
+            width: 200px;
+            height: 50px;
+            text-align: center;
+        }
+
+        .content .popupMenuTriggerDiv .TriggerDivContent span{ /* triggerDiv区域提示部分的设置 */
+
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+            line-height: 50px;
+            color: purple;
+            font-weight: bolder;
+
+        }
+
+        .content .popupMenuTriggerDiv ul{       /*开始时设 ul 的高度为 0 */
+            list-style: none;
+            width: 200px;
+            height: 0;
+            overflow: hidden;           /*不能忘记设置 overflow：hidden*/
+            transition: 0.38s;
+        }
+
+        .content .popupMenuTriggerDiv ul li{        /*li设置了高度之后就是 渐入+渐出 效果了*/
+            width: 200px;
+            height: 30px;
+            text-align: center;
+            overflow: hidden;           /*也要设置 overflow：hidden防止看到溢出的文字 */
+            background: cornflowerblue;
+            line-height: 30px;
+            color: white;
+        }
+
+        .popupMenuTriggerDiv:hover ul{      /*触发后ul的高度*/
+            height: 240px;  /* 30*8 = 240 */
+        }
+
+        .popupMenuTriggerDiv:hover ul li:hover{     /*设置一些额外效果*/
+            width: 200px;
+            color: crimson;
+            background: white;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="contentWrapper">
+
+        <div class="content">
+            <div class="popupMenuTriggerDiv">
+
+                <div class="TriggerDivContent">     <!--触发弹出式菜单的div-->
+                    <span>Show List</span>
+                </div>
+
+                <!--所要弹出的菜单-->
+                <ul style="transition-timing-function: cubic-bezier(0.42,0,0.58,1);">  <!--设置贝塞尔函数时间值-->
+                    <li>Crimson</li>
+                    <li>Lightblue</li>
+                    <li>LightGreen</li>
+                    <li>Azure</li>
+                    <li>LightGray</li>
+                    <li>Cornflowerblue</li>
+                    <li>MistyRose</li>
+                    <li>GhostWhite</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
