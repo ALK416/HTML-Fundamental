@@ -1,0 +1,40 @@
+很多网页中会出现当将页面向下滚动一段距离之后，会弹出一个顶部搜索框(或者其他组件)
+
+(具体实例代码见 topPopupNav.html)
+
+大体思路 : 
+(1)首先正常地制作好一个搜索框div (此时无需定位)
+(2)接下来需要对这个 div 进行一些修缮 :
+     第一部分 (用来定位导航条)
+     <这一部分如何使用之后会有说明>
+    .fixnav {   /*用来定位 顶部的导航条 */
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        
+(3)然后使用百度的公共库 : 
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+
+补充说明 : 
+    总体来说，在代码中加入以下部分：
+      <!--使用百度开放的库-->
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $(".xxx").hide();
+            $(window).scroll(function() {
+                if($(document).scrollTop() >= 200) {
+                    $(".xxx").addClass("fixnav").slideDown();
+                } else {
+                    $(".xxx").hide();
+                }
+            })
+        })
+    </script>
+    
+    将这部分代码中的 xxx 部分换成你已经做好的导航条的 class 名即可 (id 也可以，需要修改为 #xxx )
+    然后效果便可以实现
+    
