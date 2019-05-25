@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>逐渐弹出式菜单2</title>
+
+    <!--渐进渐出的弹出式菜单
+    (1) li的高度和宽度在 hover 之前就设置了
+    -->
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .contentWrapper{
+            width: 100%;
+            height: 50px;
+            background: lightyellow;
+        }
+        .content{
+            margin:0 auto;
+            width: 200px;
+            height: 50px;
+            background: lightblue;
+        }
+
+        .content .popupMenuTriggerDiv{
+            width: 100%;
+            height: 50px;
+        }
+
+        .content .popupMenuTriggerDiv .TriggerDivContent {
+            width: 200px;
+            height: 50px;
+        }
+
+        .content .popupMenuTriggerDiv ul{       /*开始时设 ul 的高度为 0 */
+            list-style: none;
+            width: 200px;
+            height: 0;
+            overflow: hidden;           /*不能忘记设置 overflow：hidden*/
+            transition: 0.5s;
+            transition-timing-function: linear;
+        }
+
+        .content .popupMenuTriggerDiv ul li{        /*li可以不设置宽度*/
+            width: 200px;
+            text-align: center;
+            overflow: hidden;           /*也要设置 overflow：hidden防止看到溢出的文字 */
+            background: cornflowerblue;
+        }
+
+        .popupMenuTriggerDiv:hover ul{      /*触发后ul的高度*/
+            height: 240px;  /* 30*8 = 240 */
+        }
+
+        .popupMenuTriggerDiv:hover ul li{
+            color: white;
+            background: cornflowerblue;
+        }
+
+        .popupMenuTriggerDiv:hover ul li:hover{
+            width: 200px;
+            color: crimson;
+            background: white;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="contentWrapper">
+
+        <div class="content">
+            <div class="popupMenuTriggerDiv">
+
+                <div class="TriggerDivContent">     <!--触发弹出式菜单的div-->
+                    <span>Show List</span>
+                </div>
+
+                <ul>            <!--所要弹出的菜单-->
+                    <li>Crimson</li>
+                    <li>Lightblue</li>
+                    <li>LightGreen</li>
+                    <li>Azure</li>
+                    <li>LightGray</li>
+                    <li>Cornflowerblue</li>
+                    <li>MistyRose</li>
+                    <li>GhostWhite</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
