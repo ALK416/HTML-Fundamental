@@ -9,4 +9,4 @@
 
 是否渐入渐出，与是否在 hover 之前设置 li 的高度有关
 对于 渐入而没有渐出效果的代码，见 popupMenu2.html 
-对于 有渐入且渐出效果的代码，见 popMenu1.html 
+对于 有渐入且渐出效果的代码，见 popMenu1.html(注释更完善) 
