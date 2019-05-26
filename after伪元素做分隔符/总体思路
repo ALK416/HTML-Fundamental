@@ -1,0 +1,18 @@
+在许多网页中，很多列表或者导航条经常使用 ul li 等元素，而这些元素中经常使用 after 伪元素来制作分隔符
+(参考博客 : https://blog.csdn.net/u014100996/article/details/49594029)
+实例代码见 testAfter.html 
+
+制作思路 : 
+(1)首先选定一个要在其后插入分隔符的元素( li a等 )
+(2)使用伪元素 :after 写入内容如下 :
+
+      #a1:after{
+            content: "";    /*设置内容为空*/
+            width: 1px;     /*宽度为1,即这个分割线的宽度为1*/
+            height: 80%;    /*设置宽度*/
+            background-color: #fff;   /*设置分隔线颜色*/
+            position: absolute;     /*进行定位,因为往往 after 的最初效果不理想 */
+            top: 10%;
+            left: 250px;
+        }
+(3)然后 id 为 a1 的元素之后就会追加一个分隔符.        
