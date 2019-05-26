@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>右边栏固定导航条设计</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .rightFixedNav{
+            position: fixed;
+            right: 0;
+            height: 100%;
+            width: 40px;
+            background: rgb(0,0,0);
+        }
+
+        .rightFixedNav .rightNavBottom{
+            width: 40px;
+            height: 50px;
+            background: lightgreen;
+            position: fixed;
+            bottom: 0;
+            font-size: 13px;
+        }
+
+        .rightFixedNav .rightNavTop{
+            width: 40px;
+            height: 350px;
+            position: absolute;
+            background: lightskyblue;
+            top: 35%;       /* 唯品会的侧边栏可能是对 bottom 进行了设置 */
+            right: 0;
+            font-size: 20px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="rightFixedNav">
+
+        <div class="rightNavTop">
+            <span>我是中间区域</span>
+        </div>
+
+        <div class="rightNavBottom">
+            <span>我是底部区域</span>
+        </div>
+
+    </div>
+
+</body>
+</html>
