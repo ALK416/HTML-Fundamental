@@ -1,0 +1,13 @@
+很多购物网站的最右侧都会有一个固定的侧边栏( 称侧边栏为 rightNav )
+实例见 rightNav.html
+
+分析 : 
+(1) rightNav 始终展据了100%的高度,所以随着缩放 rightNav 的高度会改变
+(2) rightNav 中的元素随着缩放其位置也应当进行设置
+(3) rightNav 中的底部元素不论怎样缩放,都应处于页面的最底部
+
+实现思路 : 
+(1)首先制作一个 div 高度为 100%,对其进行 fixed (right:0) 定位
+(2)在设计 rightNav 中的底部元素时(rightNavBottom), rightNavBottom 也应设置为 position: fixed 以及 bottom:0
+    使得不管发生什么，rightNavBottom 始终处于底部
+(3)然后对于 rightNav 中其他部分元素的时候,可以对其进行 top:40% (bottom:40%) 等设置，使得在缩放时位置不会发生太大改变
