@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品块蒙版效果</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .div1Wrapper{
+            width: 100%;
+            height: 150px;
+            background: lightskyblue;
+        }
+
+        .div1{
+            margin: 0 auto;
+            width: 200px;
+            height: 150px;
+            background: crimson;
+            position: relative;
+        }
+
+        .div1:hover .div1Appendix{      /*鼠标移动到指定位置上时设置 hoverDiv 可见*/
+            display: block;
+        }
+
+        .div1 img{
+            width: 200px;
+            height: 150px;
+        }
+
+        .div1Appendix{      /*设置具有 黑色 + 透明度 的 hoverDiv*/
+            width: 200px;
+            height: 150px;
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-align: center;
+            display: none;
+        }
+
+        .div1Appendix span{
+            width: 200px;
+            font-size: 25px;
+            font-weight: bolder;
+            line-height: 150px;
+            color: white;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="div1Wrapper">
+        <div class="div1">
+            <img src="../img/nikePng.PNG" alt="">
+            <div class="div1Appendix">
+                <span>Nike</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
