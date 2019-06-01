@@ -1,0 +1,9 @@
+制作好一个下拉菜单后，随着菜单的下拉，往往会伴随着元素之间的覆盖问题
+
+很多时候，弹出的下拉菜单都会遮挡住其下方的HTML元素，要实现这种效果，需要使用 z-index 属性
+(z-index 属性仅能在定位元素上生效<有 position 属性的元素> )
+
+将弹出菜单之下的元素的 z-index 属性设置为 0以下的一个值 
+或者合理的设置 z-index 值，使得 弹出元素的 z-index 值大于其下元素的 z-index 值即可
+
+有关 z-index 可参考 : http://www.w3school.com.cn/cssref/pr_pos_z-index.asp
