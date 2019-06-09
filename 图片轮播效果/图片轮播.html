@@ -31,22 +31,22 @@
         
     </style>
 
-    <!--Ê¹ÓÃCDN·ÖÁ÷jQuery-->
+    <!--ä½¿ç”¨CDNåˆ†æµjQuery-->
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 
     <script>
 
         var interval1;
         $(document).ready(function(){
-            /*¶¯Ì¬µØÉèÖÃ innerDiv µÄ¿í¶È*/
+            /*åŠ¨æ€åœ°è®¾ç½® innerDiv çš„å®½åº¦*/
             $("#imgAreaContent").css("width",$("#imgAreaContent").children().length*600+"px");
             var time = 1;
-            /*ÊµÏÖÂÖ²¥µÄĞ§¹û*/
+            /*å®ç°è½®æ’­çš„æ•ˆæœ*/
             interval1 = setInterval(function () {
                 if(time===($("#imgAreaContent").children().length)){
-                    time = 0;   /*·µ»Øµ½µÚÒ»ÕÅÍ¼Æ¬(¼´Ã»ÓĞÉèÖÃleftµÄĞ§¹û)*/
+                    time = 0;   /*è¿”å›åˆ°ç¬¬ä¸€å¼ å›¾ç‰‡(å³æ²¡æœ‰è®¾ç½®leftçš„æ•ˆæœ)*/
                 }
-                /*½øĞĞ innerDiv ÇøÓòµÄ×óÒÆ*/
+                /*è¿›è¡Œ innerDiv åŒºåŸŸçš„å·¦ç§»*/
                 $("#imgAreaContent").css("left",time*(-600)+"px");
                 time++;
             },2000);
