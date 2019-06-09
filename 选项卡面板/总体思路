@@ -1,0 +1,24 @@
+通过一个导航条，使得与此导航条相关的 div 区域可以根据点击的导航区域改变内容
+
+具体实例见 navPanel.html
+
+实现思路 : 
+(需要使用 jQuery ，所以先要导入 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script> )
+(1)首先制作导航条
+
+(2)制作一个 div (outerDiv) ，承载着所有子 div (innerDiv).每一个子 div 都对应着一个导航条的目标内容
+
+(3)制作所有 innerDiv <innerDiv 与 outerDiv 尺寸相同>
+
+(4)实现将所有 innerDiv 重叠的放在 outerDiv 中
+    设置 outerDiv 的position 属性为 relative, 而 innerDiv 的 position 属性为 absolute
+    
+(5)制作点击导航条，使得其中一个innerDiv显示，其他的innerDiv均不显示
+    通过 click + this 获取到当前点击的 li (导航条中)
+    var index = $(this).index();    //获取了当前点击的li的索引
+    $(".innerPanel").eq(index).css("display","block");   //设置对应的 innerDiv 为 block
+    //设置其余 innerDiv 的 display 为 none
+    var tempLi = $(".innerPanel").eq(index);
+    $(".innerPanel").not(tempLi).css("display","none");
+    
+ 即可实现效果
