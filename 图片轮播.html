@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Pictures</title>
+
+    <link rel="stylesheet" href="../css/test3.css">
+
+<style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #imgArea{
+            width: 600px;
+            height: 300px;
+            background: lightblue;
+            overflow: hidden;
+        }
+
+        #imgAreaContent{
+            position: relative;
+        }
+
+        #imgAreaContent img{
+            width: 600px;
+            height: 300px;
+        }
+        
+    </style>
+
+    <!--使用CDN分流jQuery-->
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+    <script>
+
+        var interval1;
+        $(document).ready(function(){
+            /*动态地设置 innerDiv 的宽度*/
+            $("#imgAreaContent").css("width",$("#imgAreaContent").children().length*600+"px");
+            var time = 1;
+            /*实现轮播的效果*/
+            interval1 = setInterval(function () {
+                if(time===($("#imgAreaContent").children().length)){
+                    time = 0;   /*返回到第一张图片(即没有设置left的效果)*/
+                }
+                /*进行 innerDiv 区域的左移*/
+                $("#imgAreaContent").css("left",time*(-600)+"px");
+                time++;
+            },2000);
+
+        });
+
+    </script>
+
+
+</head>
+<body>
+
+    <div id="imgArea">
+
+        <div id="imgAreaContent"><img src="http://www.jq22.com/demo/jquerylbt201806192306/images/a4.png" alt=""><img src="http://www.jq22.com/demo/jquerylbt201806192306/images/a3.png" alt=""><img src="http://www.jq22.com/demo/jquerylbt201806192306/images/a1.png" alt=""></div>
+
+    </div>
+
+</body>
+
+
+</html>
