@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>navPanel</title>
+
+    <link rel="stylesheet" href="../css/test2Css.css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .selectUl{
+            list-style: none;
+            height: 100px;
+            width: 500px;
+        }
+
+        .selectUl li{
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            float: left;
+            background: lightblue;
+        }
+
+        .selectUl li:hover{
+            background: lightcoral;
+        }
+
+        .outerPanel{
+            width: 500px;
+            height: 500px;
+            background: crimson;
+            position: relative;
+        }
+
+        .outerPanel div{
+            width: 500px;
+            height: 500px;
+            background: cornflowerblue;
+            position: absolute;
+	    display: none;
+	    font-size:30px;
+        }
+
+
+
+    </style>
+    
+</head>
+<body>
+
+    <div>
+        <ul class="selectUl">
+            <li>li1</li>
+            <li>li2</li>
+            <li>li3</li>
+            <li>li4</li>
+            <li>li5</li>
+        </ul>
+    </div>
+
+    <div class="outerPanel">
+
+        <div class="innerPanel">panel1</div>
+        <div class="innerPanel">panel2</div>
+        <div class="innerPanel">panel3</div>
+        <div class="innerPanel">panel4</div>
+        <div class="innerPanel">panel5</div>
+
+    </div>
+
+</body>
+<!--此位置可以，放在开头则无法实现效果-->
+<!--<script src="../JavaScript/test2Js.js"></script>-->
+
+<script>
+
+    $(document).ready(function () {
+
+        $(".selectUl li").click(function () {
+            var index = $(this).index();    //获取了当前点击的li的索引
+/*            alert(index);*/
+                $(".innerPanel").eq(index).css("display","block");
+            var tempLi = $(".innerPanel").eq(index);
+            $(".innerPanel").not(tempLi).css("display","none");
+        });
+
+    });
+
+</script>
+
+</html>
