@@ -1,0 +1,39 @@
+在阅读到页面底部的时候，提供一个按钮(div),点击后可以回到页面顶部,便于浏览。
+
+总体思路：
+(1)可实现渐变效果的一种实现方法 ：
+利用Jquery中的 $(window).scrollTop(); 来控制到页面顶部的距离
+将页面底部到顶部的距离等距的分为1000份或100份(自定),份数越大，效果越流畅
+然后使用一个计数器，每隔一段固定的时间使用 $(window).scrollTop(height); 语句来将页面向上移动若干个单位
+当页面移动到顶部时，将此计数器清除即可<下一次点击时会再次创建一个计时器>。
+
+<实现加速或减速移动效果> :
+height -= s*unitHeight; 每次增加或减少s值可以实现加速或减速效果
+<s++>或<s-->
+
+(2)还可以使用 a标签的锚点实现此功能
+
+详细代码 : #gotoTop是底部返回顶部的div的id
+<script>
+
+        $(window).ready(function () {
+
+            $("#gotoTop").click(function () {
+
+                var height = $(window).scrollTop();   //划分向上移动的单位
+                var unitHeight = height/1000;
+                var s = 2;      //用于实现加速或减速移动的效果
+
+                var myTime = window.setInterval(function () {   //定时向上移动一段距离
+                    if(height<=0){
+                        clearInterval(myTime);  //移动到顶部之后，清除计时器
+                    }
+                    height -= s*unitHeight;     //削除距离顶部的一段距离
+                    $(window).scrollTop(height);
+                    s++;
+                    console.log(s);
+                },10);
+            })
+        })
+
+    </script>
